@@ -15,7 +15,17 @@ pipeline {
         }
         stage('build app') {
             steps {
-                sh 'npm --version'
+                sh 'npm install'
+            }
+        }
+        stage ('test app') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        stage ('deploy app') {
+            steps {
+                sh 'npm start'
             }
         }
     }
