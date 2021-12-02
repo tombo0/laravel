@@ -15,7 +15,7 @@ pipeline {
         }
         stage('build app') {
             steps {
-                npm install
+                npm --version
             }
         }
     }
