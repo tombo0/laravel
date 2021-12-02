@@ -6,6 +6,11 @@ pipeline {
     }
 
     stages {
+        stage('ls') {
+            steps {
+                sh 'ls'
+            }
+        }
         stage('clone repo') {
             steps {
                 git branch: 'master',
