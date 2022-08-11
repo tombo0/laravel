@@ -1,18 +1,7 @@
 pipeline {
     agent {
-      kubernetes {
-        yaml '''
-        apiVersion: v1
-        kind: Pod
-        metadata:
-          labels:
-            label: testing
-        spec:
-          containers:
-          - name: composer
-            image: composer
-        '''
-
+        kubernetes {
+            cloud 'kubernetes'
       }
     }
 
@@ -25,8 +14,8 @@ pipeline {
         }
         stage('check version') {
             steps {
-                container('composer') {
-                    sh 'composer -v'
+                container('php') {
+                    sh 'php -v'
                 }
             }
         }
