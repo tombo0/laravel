@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        any { 
+        kubernetes { 
             image 'php:alpine3.16'
             label 'php'
         } 
