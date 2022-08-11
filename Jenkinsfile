@@ -1,10 +1,11 @@
 pipeline {
-    agent { 
-        any { 
-            image 'php:alpine3.16'
-            label 'php'
-        } 
+    agent {
+      kubernetes {
+        cloud 'kubernetes'
+        inheritFrom 'default'
+      }
     }
+
 
     stages {
         stage('ls') {
