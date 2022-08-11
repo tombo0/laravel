@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         docker { 
-            image 'node' 
+            image 'composer' 
         } 
     }
 
@@ -11,27 +11,25 @@ pipeline {
                 sh 'ls'
             }
         }
-        stage('clone repo') {
+        stage('check version') {
             steps {
-                git branch: 'master',
-                credentialsId: 'github-tombo',
-                url: 'https://github.com/sdcilsy/todo-react.git'
+                sh 'php --version'
             }
         }
-        stage('build app') {
-            steps {
-                sh 'npm install'
-            }
-        }
-        stage ('test app') {
-            steps {
-                sh 'npm test'
-            }
-        }
-        stage ('deploy app') {
-            steps {
-                sh 'npm start'
-            }
-        }
+//         stage('build app') {
+//             steps {
+//                 sh 'php install'
+//             }
+//         }
+//         stage ('test app') {
+//             steps {
+//                 sh 'npm test'
+//             }
+//         }
+//         stage ('deploy app') {
+//             steps {
+//                 sh 'npm start'
+//             }
+//         }
     }
 }
