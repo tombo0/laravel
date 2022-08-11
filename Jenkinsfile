@@ -1,8 +1,18 @@
 pipeline {
     agent {
       kubernetes {
-        cloud 'kubernetes'
-        inheritFrom 'default'
+        yaml '''
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          labels:
+            label: testing
+        spec:
+          containers:
+          - name: composer
+            image: composer
+        '''
+
       }
     }
 
@@ -13,11 +23,13 @@ pipeline {
                 sh 'ls'
             }
         }
-//         stage('check version') {
-//             steps {
-//                 sh 'php --version'
-//             }
-//         }
+        stage('check version') {
+            steps {
+                container('composer') {
+                    sh 'composer -v'
+                }
+            }
+        }
 //         stage('build app') {
 //             steps {
 //                 sh 'php install'
