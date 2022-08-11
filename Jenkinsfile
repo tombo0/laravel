@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        kubernetes { 
+        any { 
             image 'php:alpine3.16'
             label 'php'
         } 
@@ -12,11 +12,11 @@ pipeline {
                 sh 'ls'
             }
         }
-        stage('check version') {
-            steps {
-                sh 'php --version'
-            }
-        }
+//         stage('check version') {
+//             steps {
+//                 sh 'php --version'
+//             }
+//         }
 //         stage('build app') {
 //             steps {
 //                 sh 'php install'
