@@ -12,13 +12,20 @@ pipeline {
                 sh 'ls'
             }
         }
-        stage('check version') {
+        stage('date') {
             steps {
-                container('composer') {
+                container('default') {
                     sh 'date'
                 }
             }
         }
+//         stage('check version') {
+//             steps {
+//                 container('composer') {
+//                     sh 'date'
+//                 }
+//             }
+//         }
 //         stage('build app') {
 //             steps {
 //                 sh 'php install'
