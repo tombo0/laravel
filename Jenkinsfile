@@ -14,8 +14,8 @@ pipeline {
         }
         stage('check version') {
             steps {
-                container('php') {
-                    sh 'php -v'
+                container('composer') {
+                    sh 'composer --version'
                 }
             }
         }
