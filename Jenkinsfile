@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         any { 
-            image 'composer' 
+            image 'php' 
         } 
     }
 
