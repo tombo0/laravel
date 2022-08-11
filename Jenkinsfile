@@ -15,7 +15,7 @@ pipeline {
         stage('check version') {
             steps {
                 container('composer') {
-                    sh 'composer --version'
+                    sh 'date'
                 }
             }
         }
