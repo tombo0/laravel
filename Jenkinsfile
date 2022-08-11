@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         any { 
-            image 'php' 
+            image 'php:alpine3.16' 
         } 
     }
 
